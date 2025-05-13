@@ -52,7 +52,8 @@ mbti_types = list(mbti_emojis.keys())
 selected_mbti = st.selectbox("💌 MBTI를 선택하세요!", ["-- 선택하세요 --"] + mbti_types)
 
 if selected_mbti and selected_mbti != "-- 선택하세요 --":
-    st.markdown(f"### {selected_mbti_emojis := mbti_emojis[selected_mbti]} {selected_mbti} 유형에게 어울리는 직업은...")
+    selected_mbti_emojis = mbti_emojis[selected_mbti]
+    st.markdown(f"### {selected_mbti_emojis} {selected_mbti} 유형에게 어울리는 직업은...")
     recommended_jobs = career_recommendations[selected_mbti]
     for job in recommended_jobs:
         st.success(f"✨ {job}")
